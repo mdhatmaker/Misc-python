@@ -1,6 +1,6 @@
 import pandas as pd
 import numpy as np
-
+import os
 
 
 def csv_test():
@@ -13,11 +13,11 @@ def csv_test():
 
     # Save dataframe as csv
     df.to_csv(join(path, 'example.csv'))
-    print "Saved DataFrame to CSV."
+    print("Saved DataFrame to CSV.")
 
     # Load a csv
     df = pd.read_csv(join(path, 'example.csv'))
-    print "Loaded DataFrame from CSV."
+    print("Loaded DataFrame from CSV.")
 
     return df
 
@@ -40,13 +40,15 @@ raw_data = {'first_name': ['Jason', 'Molly', 'Tina', 'Jake', 'Amy'],
         'postTestScore': ["25,000", "94,000", 57, 62, 70]}
 df = pd.DataFrame(raw_data, columns = ['first_name', 'last_name', 'age', 'preTestScore', 'postTestScore'])
 
-folder = "C:\\Users\\Michael\\projects\\"
+#folder = "C:\\Users\\Michael\\projects\\"
+folder = "data"
+pathname = os.path.join(folder, 'pandas_example.csv')
 
 # Save dataframe as csv
-df.to_csv(folder + 'example.csv')
-print "Saved DataFrame to CSV."
+df.to_csv(pathname)
+print("Saved DataFrame to CSV.")
 
 # Load a csv
-df = pd.read_csv(folder + 'example.csv')
-print "Loaded DataFrame from CSV."
+df = pd.read_csv(pathname)
+print("Loaded DataFrame from CSV.")
 
