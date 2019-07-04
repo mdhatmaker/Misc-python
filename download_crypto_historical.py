@@ -90,6 +90,16 @@ url = 'https://www.cryptodatadownload.com/cdd/Coinbase_BTCUSD_1h.csv'
 #url = 'https://www.cryptodatadownload.com/cdd/Bitfinex_BTCUSD_1h.csv'
 #url = 'https://www.cryptodatadownload.com/cdd/Bitfinex_ETHUSD_1h.csv'
 #url = 'https://www.cryptodatadownload.com/cdd/Bitfinex_LTCUSD_1h.csv'
+##url = 'https://www.cryptodatadownload.com/cdd/Cexio_BTCUSD_1h.csv'
+##url = 'https://www.cryptodatadownload.com/cdd/Cexio_ETHUSD_1h.csv'
+#url = 'https://www.cryptodatadownload.com/cdd/Itbit_BTCUSD_1h.csv'
+#url = 'https://www.cryptodatadownload.com/cdd/Poloniex_BTCUSD_1h.csv'
+url = 'https://www.cryptodatadownload.com/cdd/Poloniex_ETHUSD_1h.csv'
+#url = 'https://www.cryptodatadownload.com/cdd/Poloniex_LTCUSD_1h.csv'
+#url = 'https://www.cryptodatadownload.com/cdd/Poloniex_BCHUSD_1h.csv'
+#url = 'https://www.cryptodatadownload.com/cdd/Poloniex_XMRUSD_1h.csv'
+#url = 'https://www.cryptodatadownload.com/cdd/Poloniex_DASHUSD_1h.csv'
+#url = 'https://www.cryptodatadownload.com/cdd/Poloniex_ETCUSD_1h.csv'
 
 download_file(url, folder)
 #exit()
