@@ -96,7 +96,7 @@ df4 = pd.read_csv('data/Bitfinex_BTCUSD_1h.csv', header=0, parse_dates=['Date'],
 df5 = pd.read_csv('data/Bitstamp_BTCUSD_1h.csv', header=0, parse_dates=['Date'], index_col='Date', squeeze=True, date_parser=parserA)
 
 print("First few data points:")
-print(df.head(10))
+print(df.head(5))
 print
 
 #plot_series(df['Close'])
