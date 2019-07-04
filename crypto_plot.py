@@ -76,12 +76,24 @@ def calc_arima(X, p):
     #print('Test MSE: %.3f' % error)
     return (test, predictions, error)
 
+def is_none(x):
+    try:
+        x
+        return False
+    except NameError:
+        x = None
+        return True
+    return x is None
+
+    
 ################################################################################
 
 df = pd.read_csv('data/gemini_BTCUSD_1hr.csv', header=0, parse_dates=[1], index_col=1, squeeze=True)
 df1 = pd.read_csv('data/Coinbase_BTCUSD_1h.csv', header=0, parse_dates=['Date'], index_col='Date', squeeze=True, date_parser=parserA)
 df2 = pd.read_csv('data/Kraken_BTCUSD_1h.csv', header=0, parse_dates=['Date'], index_col='Date', squeeze=True, date_parser=parserA)
 df3 = pd.read_csv('data/Binance_BTCUSDT_1h.csv', header=0, parse_dates=['Date'], index_col='Date', squeeze=True, date_parser=parserA)
+df4 = pd.read_csv('data/Bitfinex_BTCUSD_1h.csv', header=0, parse_dates=['Date'], index_col='Date', squeeze=True, date_parser=parserA)
+df5 = pd.read_csv('data/Bitstamp_BTCUSD_1h.csv', header=0, parse_dates=['Date'], index_col='Date', squeeze=True, date_parser=parserA)
 
 print("First few data points:")
 print(df.head(10))
@@ -89,9 +101,14 @@ print
 
 #plot_series(df['Close'])
 col = 'Close'
-pyplot.plot(df[col], color='green')
-pyplot.plot(df1[col], color='blue')
-pyplot.plot(df2[col], color='red')
-pyplot.plot(df3[col], color='gray')
-show_plot("(green=Gemini  blue=Coinbase  red=Kraken  gray=Binance)")
-exit()
+try:
+    pyplot.plot(df[col], color='green')
+    pyplot.plot(df1[col], color='blue')
+    pyplot.plot(df2[col], color='red')
+    pyplot.plot(df3[col], color='gray')
+    pyplot.plot(df4[col], color='orange')
+    pyplot.plot(df5[col], color='yellow')
+except NameError:
+    print('(tried to plot some non-existent data)')
+
+show_plot("(green=Gemini blue=Coinbase red=Kraken gray=Binance orange=BitFinex yellow=BitStamp)")

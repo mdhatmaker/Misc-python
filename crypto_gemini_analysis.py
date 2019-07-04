@@ -13,7 +13,10 @@ import math
 import sys
 
 
-def parser(x):
+def parserA(x):
+    return pd.to_datetime(x, format='%Y-%m-%d %I-%p')
+
+def parserZ(x):
     return dt.datetime.strptime('190'+x, '%Y-%m')
 
 def get_plot_lines(df, color1):
@@ -76,15 +79,26 @@ def calc_arima(X, p):
     #print('Test MSE: %.3f' % error)
     return (test, predictions, error)
 
+def print_head(df):
+    print("First few data points:")
+    print(df.head(5))
+    print()
+    return
+
+
 ################################################################################
 
 
-#series = pd.read_csv('shampoo-sales.csv', header=0, parse_dates=[0], index_col=0, squeeze=True, date_parser=parser)
-#df = pd.read_csv('data/shampoo-sales.csv', header=0, parse_dates=[0], index_col=0, squeeze=True, date_parser=parser)
-df = pd.read_csv('data/gemini_BTCUSD_1hr.csv', header=0, parse_dates=[1], index_col=1, squeeze=True)
-df1 = pd.read_csv('data/gemini_ETHUSD_1hr.csv', header=0, parse_dates=[1], index_col=1, squeeze=True)
-df2 = pd.read_csv('data/gemini_LTCUSD_1hr.csv', header=0, parse_dates=[1], index_col=1, squeeze=True)
-df3 = pd.read_csv('data/gemini_ZECUSD_1hr.csv', header=0, parse_dates=[1], index_col=1, squeeze=True)
+#df = pd.read_csv('data/gemini_BTCUSD_1hr.csv', header=0, parse_dates=['Date'], index_col='Date', squeeze=True)
+#df1 = pd.read_csv('data/gemini_ETHUSD_1hr.csv', header=0, parse_dates=['Date'], index_col='Date', squeeze=True)
+#df2 = pd.read_csv('data/gemini_LTCUSD_1hr.csv', header=0, parse_dates=['Date'], index_col='Date', squeeze=True)
+#df3 = pd.read_csv('data/gemini_ZECUSD_1hr.csv', header=0, parse_dates=['Date'], index_col='Date', squeeze=True)
+df = pd.read_csv('data/Binance_BTCUSDT_1h.csv', header=0, parse_dates=['Date'], index_col='Date', squeeze=True, date_parser=parserA)
+df1 = pd.read_csv('data/Binance_ETHUSDT_1h.csv', header=0, parse_dates=['Date'], index_col='Date', squeeze=True, date_parser=parserA)
+df2 = pd.read_csv('data/Binance_LTCUSDT_1h.csv', header=0, parse_dates=['Date'], index_col='Date', squeeze=True, date_parser=parserA)
+df3 = pd.read_csv('data/Binance_NEOUSDT_1h.csv', header=0, parse_dates=['Date'], index_col='Date', squeeze=True, date_parser=parserA)
+
+print_head(df)
 
 df['log'] = df['Close'].apply(lambda x: math.log(x))
 df1['log'] = df1['Close'].apply(lambda x: math.log(x))
@@ -99,9 +113,8 @@ df['ZEC'] = df3['log'].copy()
 df['spread'] = df.LTC.fillna(df.ZEC)
 df['spread'] = df['LTC'] - df['ZEC']
 
-print("First few data points:")
-print(df.head(10))
-print
+print_head(df)
+
 
 #plot_series(df['Close'])
 col = 'log'
