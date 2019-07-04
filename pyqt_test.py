@@ -19,26 +19,29 @@ app.setStyleSheet("QPushButton { margin: 5ex; }")
 
 
 window = QWidget()
+window.setWindowTitle('Download Crypto Historical Data')
+
 layout = QVBoxLayout()  # Create a Vertical Layout to add all the widgets
 #layout = QHBoxLayout()  # Create a Horizontal Layout to add all the widgets
 
-window.setWindowTitle('My App Description')
 
-label = QLabel('Hello world')
-#label.show()
+label = QLabel('Select exchange and click Download')
 layout.addWidget(label)
 
-btn = QPushButton('click me')
-#btn.show()
+cbo = QComboBox()
+cbo.addItem('gemini')
+cbo.addItem('Coinbase')
+cbo.addItem('Kraken')
+cbo.addItem('Binance')
+cbo.addItem('BitFinex')
+cbo.addItem('Bitstamp')
+layout.addWidget(cbo)
+
+btn = QPushButton('Download')
 layout.addWidget(btn)
 
-txt = QLineEdit('edit me, bitch')
+txt = QLineEdit('(could be some text here)')
 layout.addWidget(txt)
-
-cbo = QComboBox()
-cbo.addItem('item 1')
-cbo.addItem('item 2')
-layout.addWidget(cbo)
 
 chk = QCheckBox('Qt checkbox')
 chk.setChecked(False)
@@ -58,14 +61,13 @@ progress.setMinimum(0)
 progress.setMaximum(100)
 layout.addWidget(progress)
 
-#tbl = QTableWidget()
-#tbl.add
+spinbox = QSpinBox()
+layout.addWidget(spinbox)
+
 tableWidget = QTableWidget()    #AvailableModules)
 #tableWidget.resizeColumnsToContents()
 tableWidget.setSelectionMode(QAbstractItemView.NoSelection)   #QtWidgets.QAbstractItemView.NoSelection)
 tableWidget.setCornerButtonEnabled(True)
-#tableWidget.setRowCount(0)
-#tableWidget.setColumnCount(3)
 tableWidget.setRowCount(4)
 tableWidget.setColumnCount(2)
 tableWidget.setItem(0,0, QTableWidgetItem("Cell (1,1)"))
@@ -83,18 +85,42 @@ tableWidget.horizontalHeader().setStretchLastSection(True)
 tableWidget.verticalHeader().setVisible(False)
 layout.addWidget(tableWidget)
 
+def on_cell_changed(item):
+    print(item.text())
+    #item.setForeground(QColor(255,0,0))
+tableWidget.itemChanged.connect(on_cell_changed)
 
-def changeValue(value):
+def on_cell_doubleclick(mi):
+    row = mi.row()
+    column = mi.column()
+    #alert = QMessageBox()
+    #alert.setText('You changed cells!\n')
+    #alert.exec_()
+    print('cell changed: {} {}'.format(row+1, column+1))
+tableWidget.doubleClicked.connect(on_cell_doubleclick)  # cellChanged.connect(on_cell_changed)
+#tableWidget.cellChanged.connect(on_cell_changed)
+#tableWidget.itemChanged.connect(on_cell_changed)
+
+def on_slider_change(value):
     print(value)
-slider.valueChanged[int].connect(changeValue)
+slider.valueChanged[int].connect(on_slider_change)
 
 def on_button_clicked():
     #alert = QMessageBox()
     #alert.setText('You clicked the button!\n' + txt.text())
     #alert.exec_()
-    txt.setText('You Clicked!!!')
-    progress.setValue(50)
+    cboText = str(cbo.currentText())
+    txt.setText('Download: {}'.format(cboText))
+    progress.setValue(25)
 btn.clicked.connect(on_button_clicked)
+
+def on_spin_changed():
+    tableWidget.clearSelection()
+    x = spinbox.value()
+    #y = self.cbox.value()
+    #self.table.setRangeSelected(QTableWidgetSelectionRange(x, y, x, y), True)
+    print(x)
+spinbox.valueChanged.connect(on_spin_changed)
 
 window.setLayout(layout)
 window.show()
