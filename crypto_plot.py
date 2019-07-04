@@ -13,8 +13,8 @@ import math
 import sys
 
 
-def parser(x):
-    return dt.datetime.strptime('190'+x, '%Y-%m')
+def parserA(x):
+    return pd.to_datetime(x, format='%Y-%m-%d %I-%p')
 
 def get_plot_lines(df, color1):
     trace0 = go.Scatter(
@@ -78,60 +78,20 @@ def calc_arima(X, p):
 
 ################################################################################
 
-
-#series = pd.read_csv('shampoo-sales.csv', header=0, parse_dates=[0], index_col=0, squeeze=True, date_parser=parser)
-#df = pd.read_csv('data/shampoo-sales.csv', header=0, parse_dates=[0], index_col=0, squeeze=True, date_parser=parser)
 df = pd.read_csv('data/gemini_BTCUSD_1hr.csv', header=0, parse_dates=[1], index_col=1, squeeze=True)
+df1 = pd.read_csv('data/Coinbase_BTCUSD_1h.csv', header=0, parse_dates=['Date'], index_col='Date', squeeze=True, date_parser=parserA)
+df2 = pd.read_csv('data/Kraken_BTCUSD_1h.csv', header=0, parse_dates=['Date'], index_col='Date', squeeze=True, date_parser=parserA)
+df3 = pd.read_csv('data/Binance_BTCUSDT_1h.csv', header=0, parse_dates=['Date'], index_col='Date', squeeze=True, date_parser=parserA)
 
 print("First few data points:")
 print(df.head(10))
 print
 
-plot_series(df['Close'])
+#plot_series(df['Close'])
+col = 'Close'
+pyplot.plot(df[col], color='green')
+pyplot.plot(df1[col], color='blue')
+pyplot.plot(df2[col], color='red')
+pyplot.plot(df3[col], color='gray')
+show_plot("(green=Gemini  blue=Coinbase  red=Kraken  gray=Binance)")
 exit()
-
-"""
-plot_series(df)
-plot_autocorrelation(df)
-
-# fit model
-model = ARIMA(df, order=(5,1,0))
-model_fit = model.fit(disp=0)
-print(model_fit.summary())
-
-# plot residual errors
-plot_residual_errors(model_fit)
-"""
-
-print("Mean Squared Error (MSE) for different lags (lower = better fit):")
-lag_count = 5
-errors = [None] * lag_count
-for lag in range(1,lag_count+1):
-    (actual, predictions, error) = calc_arima(df.values, lag)
-    print('lag %d    MSE: %.3f' % (lag, error))
-    errors[lag-1] = error
-    
-
-min_mse = min(errors)
-lag = errors.index(min_mse) + 1
-(actual, predictions, error) = calc_arima(df.values, lag)
-    
-# plot
-pyplot.plot(actual)
-pyplot.plot(predictions, color='red')
-show_plot("lag {0}    (red=predicted  blue=actual)".format(lag))
-
-
-
-
-"""
-blue = 'rgb(0, 0, 255)'
-
-chart_data = []
-df = df.sort_values('Month')
-chart_data.extend(get_plot_lines(df, blue))
-
-layout = go.Layout(showlegend=False)
-fig = go.Figure(data=chart_data, layout=layout)
-plotly.offline.plot(fig, filename='shampoo.html')
-"""

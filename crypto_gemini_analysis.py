@@ -82,12 +82,35 @@ def calc_arima(X, p):
 #series = pd.read_csv('shampoo-sales.csv', header=0, parse_dates=[0], index_col=0, squeeze=True, date_parser=parser)
 #df = pd.read_csv('data/shampoo-sales.csv', header=0, parse_dates=[0], index_col=0, squeeze=True, date_parser=parser)
 df = pd.read_csv('data/gemini_BTCUSD_1hr.csv', header=0, parse_dates=[1], index_col=1, squeeze=True)
+df1 = pd.read_csv('data/gemini_ETHUSD_1hr.csv', header=0, parse_dates=[1], index_col=1, squeeze=True)
+df2 = pd.read_csv('data/gemini_LTCUSD_1hr.csv', header=0, parse_dates=[1], index_col=1, squeeze=True)
+df3 = pd.read_csv('data/gemini_ZECUSD_1hr.csv', header=0, parse_dates=[1], index_col=1, squeeze=True)
+
+df['log'] = df['Close'].apply(lambda x: math.log(x))
+df1['log'] = df1['Close'].apply(lambda x: math.log(x))
+df2['log'] = df2['Close'].apply(lambda x: math.log(x))
+df3['log'] = df3['Close'].apply(lambda x: math.log(x))
+
+print("Done loading DataFrames")
+
+df['LTC'] = df2['log'].copy()
+df['ZEC'] = df3['log'].copy()
+#df['spread'] = df['LTC'].sub - df['ZEC']
+df['spread'] = df.LTC.fillna(df.ZEC)
+df['spread'] = df['LTC'] - df['ZEC']
 
 print("First few data points:")
 print(df.head(10))
 print
 
-plot_series(df['Close'])
+#plot_series(df['Close'])
+col = 'log'
+pyplot.plot(df[col], color='green')
+pyplot.plot(df1[col], color='blue')
+pyplot.plot(df2[col], color='red')
+pyplot.plot(df3[col], color='gray')
+pyplot.plot(df['spread'], color='black')
+show_plot("(green=BTC  blue=ETH  red=LTC  gray=ZEC)")
 exit()
 
 """
