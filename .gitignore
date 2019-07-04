@@ -22,3 +22,6 @@ data/Kraken_ETHUSD_1h.csv
 data/Kraken_LTCEUR_1h.csv
 data/Kraken_LTCUSD_1h.csv
 data/Kraken_XRPUSD_1h.csv
+data/Bitfinex_BTCUSD_1h.csv
+data/Bitfinex_ETHUSD_1h.csv
+data/Bitfinex_LTCUSD_1h.csv

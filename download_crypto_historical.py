@@ -87,6 +87,9 @@ url = 'https://www.cryptodatadownload.com/cdd/Coinbase_BTCUSD_1h.csv'
 #url = 'https://www.cryptodatadownload.com/cdd/Bitstamp_BTCEUR_1h.csv'
 #url = 'https://www.cryptodatadownload.com/cdd/Bitstamp_ETHEUR_1h.csv'
 #url = 'https://www.cryptodatadownload.com/cdd/Bitstamp_LTCEUR_1h.csv'
+#url = 'https://www.cryptodatadownload.com/cdd/Bitfinex_BTCUSD_1h.csv'
+#url = 'https://www.cryptodatadownload.com/cdd/Bitfinex_ETHUSD_1h.csv'
+#url = 'https://www.cryptodatadownload.com/cdd/Bitfinex_LTCUSD_1h.csv'
 
 download_file(url, folder)
 #exit()
