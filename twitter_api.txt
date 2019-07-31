@@ -1,0 +1,28 @@
+
+
+Twitter Consumer API keys
+-------------------------
+UDU1sgRZEcSvK011X6PEwDLpB (API key)
+LvlH9l7lNt9ZXISsWwfbZH7dlYzBjTrmyGQUdBF1d864Opei3k (API secret key)
+Access token & access token secret
+1114249425927458816-cNbbxcxUj1nvXpnUgclZY3heA1SmTb (Access token)
+ZHqScLrGxnBwXTmoFhjDups0p42s3rkehsrqDCgnzX2su (Access token secret)
+Read and write (Access level)
+
+Twitter Search API
+------------------
+curl --request GET 
+ --url 'https://api.twitter.com/1.1/search/tweets.json?q=from%3Atwitterdev&result_type=mixed&count=2' 
+ --header 'authorization: OAuth oauth_consumer_key="consumer-key-for-app", 
+ oauth_nonce="generated-nonce", oauth_signature="generated-signature", 
+ oauth_signature_method="HMAC-SHA1", oauth_timestamp="generated-timestamp", 
+ oauth_token="access-token-for-authed-user", oauth_version="1.0"'
+
+twurl /1.1/search/tweets.json?q=from%3Atwitterdev&result_type=mixed&count=2
+
+curl --request GET 
+ --url 'https://api.twitter.com/1.1/search/tweets.json?q=from%3Atwitterdev&result_type=mixed&count=2' 
+ --header 'authorization: OAuth oauth_consumer_key="UDU1sgRZEcSvK011X6PEwDLpB", 
+ oauth_nonce="generated-nonce", oauth_signature="generated-signature", 
+ oauth_signature_method="HMAC-SHA1", oauth_timestamp="generated-timestamp", 
+ oauth_token="access-token-for-authed-user", oauth_version="1.0"'
