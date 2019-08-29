@@ -5,6 +5,7 @@ from os.path import basename, splitext
 import os
 import sys
 from datetime import datetime
+import re
 
 
 MEGABYTE = 1048576
@@ -97,9 +98,20 @@ def open_1337x_magnet(url):
     open_magnet_link(links[0])
     return
 
-def get_search_results(bs):
+def get_search_results(search_for, pages=(1)):
+    li = []
+    if (type(pages) is tuple):
+        for i in pages:
+            li.extend(get_search_results_page(search_for, i))
+    else:
+        li = get_search_results_page(search_for, pages)
+    return li
+
+def get_search_results_page(search_for, page):
     # returns list - each list item is list of <td> columns
     # 0=name 1=se 2=le 3=time 4=size 5=uploader
+    search_url = get_search_url(search_for, page)
+    bs = get_soup(search_url)
     tables = bs.find_all('table')
     #for x in tables:
     #    print(x.name)
@@ -154,17 +166,38 @@ print('=========================================================================
 #sys.exit()
 
 #search_url = get_search_url("forged of blood", 1)
-search_url = get_search_url("elementary s06", 2)
-soup = get_soup(search_url)
+#search_url = get_search_url("krypton s02", 1)
+#soup = get_soup(search_url)
 
-li = get_search_results(soup)
-print('\n', li[0][4].text, '\n')
-print(get_search_row_size(li[0]))
-print(get_search_row_link(li[0]))
+SE = "[sS][0-9][0-9][eE][0-9][0-9]"
+found = {}
+download = False
+
+li = get_search_results("reef break s01", (1,2,3))
+#print('\n', li[0][4].text, '\n')
+for i in range(len(li)):
+    sizes = get_search_row_size(li[i])
+    url = get_search_row_link(li[i])
+    #print(i+1, sizes, url)
+    x = re.search(SE, url)
+    max_size = 300 * MEGABYTE
+    if x != None and sizes[0] < max_size:
+        print(i+1, sizes, url)
+        st = x.group()
+        i1 = int(st[1:3])
+        i2 = int(st[4:])
+        tu = (i1, i2)
+        if not (tu in found.keys()):
+            print(tu)
+            found[tu] = url
+            if download: open_1337x_magnet(url)
+
 
 
 sys.exit()
 
+
+soup = get_soup(url)
 next_link = None
 for link in soup.find_all('a'):
     if link.text.lower().strip() == 'next':
