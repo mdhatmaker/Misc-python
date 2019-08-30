@@ -127,6 +127,7 @@ def add_momentum(df, in_colname, span, out_colname):
 
 folder = 'data'
 
+"""
 filename = get_crypto_historical_filename('Coinbase', 'BTC', 'USD')
 url = get_cryptodatadownload_url(filename)
 
@@ -142,6 +143,7 @@ print("Reading {} from folder {}".format(filename, folder))
 df = read_historical(filename, folder, parserDateOnly)
 #df = read_historical(filename, folder, parserDateTime)
 
+# Reverse row order
 df = df_reverse_row_order(df)
 
 df['avg'] = df[['Open', 'High', 'Low', 'Close']].mean(axis=1)
@@ -162,3 +164,4 @@ print(df)
 
 
 print(df.tail(50))
+"""
