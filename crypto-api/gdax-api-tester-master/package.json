@@ -1,0 +1,11 @@
+{
+  "name": "gdax-api-tester",
+  "version": "0.2.0",
+  "description": "Scripts for making test calls to the GDAX API v1",
+  "repository": "https://github.com/jborseth/gdax-api-tester",
+  "dependencies": {
+    "async": "^0.9.0",
+    "gdax": "^0.3.1"
+  },
+  "license": "MIT"
+}

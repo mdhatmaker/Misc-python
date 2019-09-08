@@ -1,0 +1,15 @@
+LICENSE
+MANIFEST.in
+README.md
+setup.py
+iqfeed/__init__.py
+iqfeed/download.py
+iqfeed/main.py
+iqfeed/tools.py
+iqfeed.egg-info/PKG-INFO
+iqfeed.egg-info/SOURCES.txt
+iqfeed.egg-info/dependency_links.txt
+iqfeed.egg-info/entry_points.txt
+iqfeed.egg-info/not-zip-safe
+iqfeed.egg-info/requires.txt
+iqfeed.egg-info/top_level.txt

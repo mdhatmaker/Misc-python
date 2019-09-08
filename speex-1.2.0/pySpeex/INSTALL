@@ -1,0 +1,9 @@
+To build the Python Bindings for Speex:
+
+1) Ensure that this directory is sitting at the top level of
+   the Speex source tree
+
+2) Type 'python setup.py build'
+
+3) Log in as root, and type 'python setup.py install'
+

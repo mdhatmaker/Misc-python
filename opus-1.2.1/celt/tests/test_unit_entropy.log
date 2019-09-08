@@ -1,0 +1,4 @@
+Encoded 5777073.34 bits of entropy to 5778365.00 bits (0.022% wasted).
+Packed to 497192 bytes.
+Testing random streams... Random seed: 1501944896 (1BAA)
+PASS celt/tests/test_unit_entropy (exit status: 0)

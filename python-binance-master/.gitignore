@@ -1,0 +1,3 @@
+.tox
+.cache/v/cache
+docs/_build

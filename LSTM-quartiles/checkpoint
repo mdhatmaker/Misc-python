@@ -1,0 +1,2 @@
+model_checkpoint_path: "rnn_quartiles_model-1000"
+all_model_checkpoint_paths: "rnn_quartiles_model-1000"

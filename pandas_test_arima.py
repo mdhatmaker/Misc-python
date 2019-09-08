@@ -1,6 +1,5 @@
 import pandas as pd
-#from pandas.tools.plotting import autocorrelation_plot
-from pandas.plotting import autocorrelation_plot # works fine
+from pandas.tools.plotting import autocorrelation_plot
 from matplotlib import pyplot
 import plotly.plotly as py
 import plotly.graph_objs as go
@@ -52,8 +51,8 @@ def plot_residual_errors(fit):
     show_plot('residual errors')
     residuals.plot(kind='kde')
     show_plot('error distribution')
-    print()
-    print("residual errors description:")
+    print
+    print "residual errors description:"
     print(residuals.describe())
     return
 
@@ -79,12 +78,10 @@ def calc_arima(X, p):
 
 
 #series = pd.read_csv('shampoo-sales.csv', header=0, parse_dates=[0], index_col=0, squeeze=True, date_parser=parser)
-df = pd.read_csv('data/shampoo-sales.csv', header=0, parse_dates=[0], index_col=0, squeeze=True, date_parser=parser)
-
+df = pd.read_csv('shampoo-sales.csv', header=0, parse_dates=[0], index_col=0, squeeze=True, date_parser=parser)
 print("First few data points:")
 print(df.head(10))
 print
-
 
 """
 plot_series(df)
@@ -99,7 +96,7 @@ print(model_fit.summary())
 plot_residual_errors(model_fit)
 """
 
-print("Mean Squared Error (MSE) for different lags (lower = better fit):")
+print "Mean Squared Error (MSE) for different lags (lower = better fit):"
 lag_count = 5
 errors = [None] * lag_count
 for lag in range(1,lag_count+1):

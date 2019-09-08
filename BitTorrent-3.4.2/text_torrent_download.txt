@@ -1,0 +1,6 @@
+https://www.linuxquestions.org/questions/fedora-35/text-based-torrent-client-257275/
+
+Just download the python source from http://prdownloads.sourceforge.net/b...ar.gz?download
+
+As long as you have Python installed, you can run btdownloadcurses.py from a text window or console and download any torrent file without the GUI overhead.
+

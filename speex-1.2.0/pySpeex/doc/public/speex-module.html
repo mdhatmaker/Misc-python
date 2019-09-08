@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>speex</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css"></link>
+</head>
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+
+<!-- =========== START OF NAVBAR =========== -->
+<table class="navbar" border="0" width="100%" cellpadding="0" bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="center">
+    <th bgcolor="#70b0f0" class="navselect">&nbsp;&nbsp;&nbsp;Home&nbsp;&nbsp;&nbsp;</th>
+    <th class="navbar">&nbsp;&nbsp;&nbsp;<a class="navbar" href="trees.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+    <th class="navbar">&nbsp;&nbsp;&nbsp;<a class="navbar" href="indices.html">Index</a>&nbsp;&nbsp;&nbsp;</th>
+    <th class="navbar">&nbsp;&nbsp;&nbsp;<a class="navbar" href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+<font size="-1"><b class="breadcrumbs">
+  Module&nbsp;speex</b></font></br>
+    </td>
+    <td><table cellpadding="0" cellspacing="0">
+      <tr><td align="right"><font size="-2">[<a href="../private/speex-module.html">show&nbsp;private</a>&nbsp;|&nbsp;hide&nbsp;private]</font></td></tr>
+      <tr><td align="right"><font size="-2">[<a href="frames.html"target="_top">frames</a>&nbsp;|&nbsp;<a href="speex-module.html" target="_top">no&nbsp;frames</a>]</font></td></tr>
+    </table></td></tr></table>
+
+<!-- =========== START OF MODULE DESCRIPTION =========== -->
+<h2 class="module">Module speex</h2>
+
+<p>Module: speex</p>
+<p>by David McNab &lt;david@rebirthing.co.nz&gt;</p>
+This Python module implements a Python wrapper to the Speex speech 
+codec, (http://www.speex.org), providing a class called 'speex' which can 
+be used to encode and decode streams of audio speech data
+<hr/>
+
+<!-- =========== START OF FUNCTION SUMMARY =========== -->
+<table class="summary" border="1" cellpadding="3" cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="summary">
+  <th colspan="2">Function Summary</th></tr>
+<tr><td align="right" valign="top" width="15%"><font size="-1">&nbsp;</font></td>
+  <td><code><span class=summary-sig><a href="speex-module.html#new" class="summary-sig-name"><code>new</code></a>(<span class=summary-sig-vararg>...</span>)</span></code>
+<br />new(): Create a new speex speech stream object</td></tr>
+</table><br />
+
+
+<!-- =========== START OF FUNCTION DETAILS =========== -->
+<table class="details" border="1" cellpadding="3" cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="details">
+  <th colspan="2">Function Details</th></tr>
+</table>
+
+<a name="new"></a>
+<table width="100%" class="func-details" bgcolor="#e0e0e0"><tr><td>
+  <h3><span class=sig><span class=sig-name>new</span>(<span class=sig-vararg>...</span>)</span>
+  </h3>
+  <p>new(): Create a new speex speech stream object</p>
+  Arguments:
+  <ul>
+    <li>
+      quality - 0 (lowest) to 10 (highest), default 8
+    </li>
+  </ul>
+  The created speex stream object has two methods:
+  <ul>
+    <li>
+      <p>encode - encode a block of speech audio data</p>
+      Arguments:
+      <ul>
+        <li>
+          block of audio data, as sequence of frames, where each frame is an 
+          int
+        </li>
+      </ul>
+      Returns:
+      <ul>
+        <li>
+          raw string containing encoded data, or empty string if there is not 
+          yet any encoded data available
+        </li>
+      </ul>
+    </li>
+    <li>
+      <p>decode - decodes a block of speech audio data</p>
+      Arguments:
+      <ul>
+        <li>
+          block of encoded data, as raw string,
+        </li>
+      </ul>
+      Returns:
+      <ul>
+        <li>
+          block of audio data, as sequence of ints, or an empty sequence if 
+          there is no decoded data available yet
+        </li>
+      </ul>
+    </li>
+  </ul>
+  Notes:
+  <ul>
+    <li>
+      Both of these methods use internal buffering, which means that you can 
+      feed in data piecemeal. This helps a lot when sending and receiving 
+      data over the net.
+    </li>
+  </ul>
+  <dl><dt></dt><dd>
+  </dd></dl>
+</td></tr></table>
+<br />
+
+
+<!-- =========== START OF NAVBAR =========== -->
+<table class="navbar" border="0" width="100%" cellpadding="0" bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="center">
+    <th bgcolor="#70b0f0" class="navselect">&nbsp;&nbsp;&nbsp;Home&nbsp;&nbsp;&nbsp;</th>
+    <th class="navbar">&nbsp;&nbsp;&nbsp;<a class="navbar" href="trees.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+    <th class="navbar">&nbsp;&nbsp;&nbsp;<a class="navbar" href="indices.html">Index</a>&nbsp;&nbsp;&nbsp;</th>
+    <th class="navbar">&nbsp;&nbsp;&nbsp;<a class="navbar" href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+  </tr>
+</table>
+
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+  <tr>
+    <td align="left"><font size="-2">Generated by Epydoc 1.1 on Wed Mar  5 18:59:18 2003</font></td>
+    <td align="right"><a href="http://epydoc.sourceforge.net"
+                      ><font size="-2">http://epydoc.sf.net</font></a></td>
+  </tr>
+</table>
+</body>
+</html>
