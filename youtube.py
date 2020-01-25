@@ -17,6 +17,10 @@ with youtube_dl.YoutubeDL(ydl_opts) as ydl:
 from pytube import YouTube
 
 yt = YouTube("https://www.youtube.com/watch?v=n06H7OcPd-g")
-yt = yt.get('mp4', '720p')
-yt.download('/path/to/download/directory')
-
+#yt = yt.get('mp4', '720p')
+#yt.download('/path/to/download/directory')
+print(yt.title)
+print(yt.thumbnail_url)
+print(yt.streams.all())
+stream = yt.streams.first()
+stream.download('C:\\Users\\mhatm\\Downloads')
