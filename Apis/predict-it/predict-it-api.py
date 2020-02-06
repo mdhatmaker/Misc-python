@@ -14,9 +14,10 @@ import sys
 import xmltodict
 
 
-# https://predictit.freshdesk.com/support/solutions/articles/12000001878-does-predictit-make-market-data-available-via-an-api-
-# https://www.reddit.com/r/predictit/comments/5prpct/predictit_python_api/
-# https://projects.fivethirtyeight.com/2020-primary-forecast/?ex_cid=rrpromo
+### https://predictit.freshdesk.com/support/solutions/articles/12000001878-does-predictit-make-market-data-available-via-an-api-
+### https://www.predictit.org/api/marketdata/markets/3633
+### https://www.reddit.com/r/predictit/comments/5prpct/predictit_python_api/
+### https://projects.fivethirtyeight.com/2020-primary-forecast/?ex_cid=rrpromo
 
 
 """
