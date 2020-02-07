@@ -46,6 +46,8 @@ app.setStyleSheet("QPushButton { margin: 5ex; }")
 window = QWidget()
 window.setWindowTitle('Download Crypto Historical Data')
 window.setGeometry(150, 150, 800, 600);
+window.raise_() # bring window to front
+
 
 layout = QVBoxLayout()  # Create a Vertical Layout to add all the widgets
 #layout = QHBoxLayout()  # Create a Horizontal Layout to add all the widgets
