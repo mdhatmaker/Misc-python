@@ -22,6 +22,7 @@ def qget(quandl_code, **kwargs):
     return data
 
 
+###############################################################################
 if __name__ == "__main__":
 
     # get last row_count rows using Quandl API key (Date, Value)
