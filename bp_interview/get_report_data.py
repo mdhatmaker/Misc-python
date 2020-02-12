@@ -10,6 +10,7 @@ import sys
 ### https://www.api.org/products-and-services/statistics/api-weekly-statistical-bulletin
 
 
+# Get directory of executing script
 def get_dir():
     return os.path.dirname(os.path.realpath(__file__))
 
