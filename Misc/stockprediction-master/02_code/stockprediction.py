@@ -4,9 +4,27 @@ import numpy as np
 import pandas as pd
 from sklearn.preprocessing import MinMaxScaler
 import matplotlib.pyplot as plt
+import sys, os
+
+# Get directory of executing script
+def get_dir():
+    return os.path.dirname(os.path.realpath(__file__))
+
+# Get path relative to executing script
+def get_relpath(path):
+    return os.path.join(get_dir(), path)
+
+# Get parent of given directory
+def get_parent(path):
+    return os.path.split(path)[0]
+
+# Get path relative to PARENT of executing script
+def get_parent_relpath(path):
+    return os.path.join(get_parent(get_dir()), path)
 
 # Import data
-data = pd.read_csv('01_data/data_stocks.csv')
+import_path = get_parent_relpath('01_data/data_stocks.csv')
+data = pd.read_csv(import_path)
 
 # Drop date variable
 data = data.drop(['DATE'], 1)
