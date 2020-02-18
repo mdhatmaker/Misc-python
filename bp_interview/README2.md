@@ -1,12 +1,14 @@
 # BP INTERVIEW FOLLOW-UP
 
-The code associated with this document can be found in the "bp_interview" folder of my following public GitHub repo:
-<https://github.com/mdhatmaker/Misc-python>
+The code associated with this document can be found in the "bp_interview" folder of one of my public GitHub repo:
+<https://github.com/mdhatmaker/Misc-python/tree/master/bp_interview>
 
 
 ## Introduction
 
-The following are some follow-up notes related to the BP face-to-face interview with Michael Hatmaker on Tue Feb 18, 2020:
+The following are some follow-up notes related to the BP face-to-face interview with Michael Hatmaker on Tue Feb 18, 2020.
+
+Most code can be found in the '*.ipynb' files in this "bp_interview" folder.
 
 
 ## Performance
