@@ -1,0 +1,9 @@
+nfft=60 inverse=0,snr = 140.866966
+nfft=60 inverse=1,snr = 140.454497
+nfft=120 inverse=0,snr = 139.186782
+nfft=120 inverse=1,snr = 140.054978
+nfft=240 inverse=0,snr = 138.172344
+nfft=240 inverse=1,snr = 139.629504
+nfft=480 inverse=0,snr = 132.705783
+nfft=480 inverse=1,snr = 138.715711
+PASS celt/tests/test_unit_dft (exit status: 0)

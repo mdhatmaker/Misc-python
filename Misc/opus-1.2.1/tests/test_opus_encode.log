@@ -1,0 +1,94 @@
+Testing libopus 1.2.1 encoder. Random seed: 3814448233 (1122)
+Running simple tests for bugs that have been fixed previously
+  Encode+Decode tests.
+    Mode     LP FB encode  VBR,   8495 bps OK.
+    Mode     LP FB encode  VBR,  22411 bps OK.
+    Mode     LP FB encode  VBR,  48376 bps OK.
+    Mode Hybrid FB encode  VBR,  25107 bps OK.
+    Mode Hybrid FB encode  VBR,  42395 bps OK.
+    Mode Hybrid FB encode  VBR,  52459 bps OK.
+    Mode Hybrid FB encode  VBR,  68440 bps OK.
+    Mode   MDCT FB encode  VBR, 694478 bps OK.
+    Mode   MDCT FB encode  VBR,  18251 bps OK.
+    Mode   MDCT FB encode  VBR,  34415 bps OK.
+    Mode   MDCT FB encode  VBR,  61803 bps OK.
+    Mode   MDCT FB encode  VBR,  81792 bps OK.
+    Mode   MDCT FB encode  VBR, 160296 bps OK.
+    Mode     LP FB encode CVBR,   6480 bps OK.
+    Mode     LP FB encode CVBR,  16794 bps OK.
+    Mode     LP FB encode CVBR,  67693 bps OK.
+    Mode Hybrid FB encode CVBR,  23367 bps OK.
+    Mode Hybrid FB encode CVBR,  63496 bps OK.
+    Mode Hybrid FB encode CVBR,  57530 bps OK.
+    Mode Hybrid FB encode CVBR, 100397 bps OK.
+    Mode   MDCT FB encode CVBR, 597742 bps OK.
+    Mode   MDCT FB encode CVBR,  17811 bps OK.
+    Mode   MDCT FB encode CVBR,  28224 bps OK.
+    Mode   MDCT FB encode CVBR,  56485 bps OK.
+    Mode   MDCT FB encode CVBR, 118925 bps OK.
+    Mode   MDCT FB encode CVBR, 132157 bps OK.
+    Mode     LP FB encode  CBR,  11546 bps OK.
+    Mode     LP FB encode  CBR,  12589 bps OK.
+    Mode     LP FB encode  CBR,  75647 bps OK.
+    Mode Hybrid FB encode  CBR,  21892 bps OK.
+    Mode Hybrid FB encode  CBR,  53979 bps OK.
+    Mode Hybrid FB encode  CBR,  72220 bps OK.
+    Mode Hybrid FB encode  CBR,  90545 bps OK.
+    Mode   MDCT FB encode  CBR, 949899 bps OK.
+    Mode   MDCT FB encode  CBR,  21955 bps OK.
+    Mode   MDCT FB encode  CBR,  37473 bps OK.
+    Mode   MDCT FB encode  CBR,  85464 bps OK.
+    Mode   MDCT FB encode  CBR,  70605 bps OK.
+    Mode   MDCT FB encode  CBR, 114567 bps OK.
+    Mode     LP NB dual-mono MS encode  VBR,   5470 bps OK.
+    Mode     LP NB dual-mono MS encode  VBR,  12524 bps OK.
+    Mode     LP NB dual-mono MS encode  VBR,  47723 bps OK.
+    Mode     LP NB dual-mono MS encode  VBR,  15685 bps OK.
+    Mode     LP NB dual-mono MS encode  VBR,  22654 bps OK.
+    Mode     LP NB dual-mono MS encode  VBR,  49227 bps OK.
+    Mode     LP NB dual-mono MS encode  VBR,  81997 bps OK.
+    Mode     LP NB dual-mono MS encode  VBR,  92103 bps OK.
+    Mode   MDCT NB dual-mono MS encode  VBR,   5032 bps OK.
+    Mode   MDCT NB dual-mono MS encode  VBR,  23895 bps OK.
+    Mode   MDCT NB dual-mono MS encode  VBR,  46329 bps OK.
+    Mode   MDCT NB dual-mono MS encode  VBR,  13995 bps OK.
+    Mode   MDCT NB dual-mono MS encode  VBR,  26241 bps OK.
+    Mode   MDCT NB dual-mono MS encode  VBR,  60741 bps OK.
+    Mode   MDCT NB dual-mono MS encode  VBR,  91327 bps OK.
+    Mode   MDCT NB dual-mono MS encode  VBR, 150705 bps OK.
+    Mode     LP NB dual-mono MS encode CVBR,   5814 bps OK.
+    Mode     LP NB dual-mono MS encode CVBR,  12943 bps OK.
+    Mode     LP NB dual-mono MS encode CVBR,  62464 bps OK.
+    Mode     LP NB dual-mono MS encode CVBR,  11185 bps OK.
+    Mode     LP NB dual-mono MS encode CVBR,  18451 bps OK.
+    Mode     LP NB dual-mono MS encode CVBR,  53153 bps OK.
+    Mode     LP NB dual-mono MS encode CVBR,  68791 bps OK.
+    Mode     LP NB dual-mono MS encode CVBR, 133585 bps OK.
+    Mode   MDCT NB dual-mono MS encode CVBR,   7462 bps OK.
+    Mode   MDCT NB dual-mono MS encode CVBR,  19170 bps OK.
+    Mode   MDCT NB dual-mono MS encode CVBR,  55982 bps OK.
+    Mode   MDCT NB dual-mono MS encode CVBR,  14802 bps OK.
+    Mode   MDCT NB dual-mono MS encode CVBR,  31955 bps OK.
+    Mode   MDCT NB dual-mono MS encode CVBR,  39773 bps OK.
+    Mode   MDCT NB dual-mono MS encode CVBR,  86900 bps OK.
+    Mode   MDCT NB dual-mono MS encode CVBR, 158100 bps OK.
+    Mode     LP NB dual-mono MS encode  CBR,   6195 bps OK.
+    Mode     LP NB dual-mono MS encode  CBR,  20214 bps OK.
+    Mode     LP NB dual-mono MS encode  CBR,  59783 bps OK.
+    Mode     LP NB dual-mono MS encode  CBR,  11650 bps OK.
+    Mode     LP NB dual-mono MS encode  CBR,  20390 bps OK.
+    Mode     LP NB dRunning fuzz_encoder_settings with 5 encoder(s) and 40 setting change(s) each.
+Tests completed successfully.
+ual-mono MS encode  CBR,  56666 bps OK.
+    Mode     LP NB dual-mono MS encode  CBR,  60707 bps OK.
+    Mode     LP NB dual-mono MS encode  CBR, 130096 bps OK.
+    Mode   MDCT NB dual-mono MS encode  CBR,   4620 bps OK.
+    Mode   MDCT NB dual-mono MS encode  CBR,  19053 bps OK.
+    Mode   MDCT NB dual-mono MS encode  CBR,  44782 bps OK.
+    Mode   MDCT NB dual-mono MS encode  CBR,  13168 bps OK.
+    Mode   MDCT NB dual-mono MS encode  CBR,  30248 bps OK.
+    Mode   MDCT NB dual-mono MS encode  CBR,  53456 bps OK.
+    Mode   MDCT NB dual-mono MS encode  CBR,  66932 bps OK.
+    Mode   MDCT NB dual-mono MS encode  CBR, 145861 bps OK.
+    All framesize pairs switching encode, 9671 frames OK.
+PASS tests/test_opus_encode (exit status: 0)

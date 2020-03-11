@@ -1,0 +1,5 @@
+{
+    "key": "alt+r",
+    "command": "workbench.action.tasks.runTask",
+    "args": "Python"
+}

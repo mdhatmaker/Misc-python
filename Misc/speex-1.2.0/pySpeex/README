@@ -1,0 +1,15 @@
+This directory contains Python bindings to the Speex speech codec.
+
+Python module implementing these bindings was implemented by
+David McNab <david@rebirthing.co.nz>
+
+For info on Speex, refer the Speex website - www.speex.org
+
+To install these bindings, place this directory at the top level of
+your Speex build directory.
+
+To build the extension, refer to the file INSTALL
+
+To use the python interface, refer to the documentation
+in the doc directory.
+

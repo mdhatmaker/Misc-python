@@ -1,0 +1,23 @@
+Testing silk_LPC_inverse_pred_gain() optimization ...
+Loop    0 passed
+Loop  500 passed
+Loop 1000 passed
+Loop 1500 passed
+Loop 2000 passed
+Loop 2500 passed
+Loop 3000 passed
+Loop 3500 passed
+Loop 4000 passed
+Loop 4500 passed
+Loop 5000 passed
+Loop 5500 passed
+Loop 6000 passed
+Loop 6500 passed
+Loop 7000 passed
+Loop 7500 passed
+Loop 8000 passed
+Loop 8500 passed
+Loop 9000 passed
+Loop 9500 passed
+silk_LPC_inverse_pred_gain() optimization passed
+PASS silk/tests/test_unit_LPC_inv_pred_gain (exit status: 0)

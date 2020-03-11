@@ -1,0 +1,3 @@
+#!/bin/sh
+#g++ -lSDL2 myfile.c -o test && ./test
+g++ zmqclient.cpp -o test && ./test

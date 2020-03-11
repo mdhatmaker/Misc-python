@@ -1,0 +1,43 @@
+https://www.geeksforgeeks.org/amazons-asked-interview-questions/
+
+Amazon’s most asked interview questions
+
+1) K largest elements from a big file or array.
+
+2) Find a triplet a, b, c such that a2 = b2 + c2. Variations of this problem like find a triplet with sum equal to 0. Find a pair with given sum. All such questions are efficiently solved using hashing. – Practice here
+
+3) Binary tree traversal questions like left view, right view, top view, bottom view, maximum of a level, minimum of a level, children sum property, diameter etc.
+
+4) Convert a Binary tree to DLL – Practice here
+
+5) Lowest Common ancestor in a Binary Search Tree and Binary Tree.
+
+7) Implement a stack with push(), pop() and min() in O(1) time.
+
+8) Reverse a linked list in groups of size k – Practice here
+
+9) Given two numbers represented by two linked lists, write a function that returns sum list – Practice here
+
+10) Rotate a matrix by 90 degree.
+
+11) Stock span problem
+
+12) Next greater element
+
+12) Some Dynamic Programming problems like:
+
+Maximum sum subarray such that no elements are consecutive – Practice here
+Edit distance
+Assembly line scheduling
+13) Why Amazon?
+
+14) Questions about projects done in previous company or final year.
+
+Also, see
+
+Amazon Interview Experiences
+Amazon Practice Questions
+Amazon’s most frequently asked Questions – Set 2
+
+
+

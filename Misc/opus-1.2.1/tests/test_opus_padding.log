@@ -1,0 +1,4 @@
+Testing libopus 1.2.1 padding.
+  Checking for padding overflow... OK.
+All padding tests passed.
+PASS tests/test_opus_padding (exit status: 0)

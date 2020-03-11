@@ -1,0 +1,160 @@
+Testing the libopus 1.2.1 API deterministically
+
+  Decoder basic API tests
+  ---------------------------------------------------
+    opus_decoder_get_size(0)=0 ................... OK.
+    opus_decoder_get_size(1)=18228 ............... OK.
+    opus_decoder_get_size(2)=26996 ............... OK.
+    opus_decoder_get_size(3)=0 ................... OK.
+    opus_decoder_create() ........................ OK.
+    opus_decoder_init() .......................... OK.
+    OPUS_GET_FINAL_RANGE ......................... OK.
+    OPUS_UNIMPLEMENTED ........................... OK.
+    OPUS_GET_BANDWIDTH ........................... OK.
+    OPUS_GET_SAMPLE_RATE ......................... OK.
+    OPUS_GET_PITCH ............................... OK.
+    OPUS_GET_LAST_PACKET_DURATION ................ OK.
+    OPUS_SET_GAIN ................................ OK.
+    OPUS_GET_GAIN ................................ OK.
+    OPUS_RESET_STATE ............................. OK.
+    opus_{packet,decoder}_get_nb_samples() ....... OK.
+    opus_packet_get_nb_frames() .................. OK.
+    opus_packet_get_bandwidth() .................. OK.
+    opus_packet_get_samples_per_frame() .......... OK.
+    opus_decode() ................................ OK.
+    opus_decode_float() .......................... OK.
+                   All decoder interface tests passed
+                             (1219433 API invocations)
+
+  Multistream decoder basic API tests
+  ---------------------------------------------------
+    opus_multistream_decoder_get_size(-1,-1)=0 ... OK.
+    opus_multistream_decoder_get_size(-1, 0)=0 ... OK.
+    opus_multistream_decoder_get_size(-1, 1)=0 ... OK.
+    opus_multistream_decoder_get_size(-1, 2)=0 ... OK.
+    opus_multistream_decoder_get_size(-1, 3)=0 ... OK.
+    opus_multistream_decoder_get_size( 0,-1)=0 ... OK.
+    opus_multistream_decoder_get_size( 0, 0)=0 ... OK.
+    opus_multistream_decoder_get_size( 0, 1)=0 ... OK.
+    opus_multistream_decoder_get_size( 0, 2)=0 ... OK.
+    opus_multistream_decoder_get_size( 0, 3)=0 ... OK.
+    opus_multistream_decoder_get_size( 1,-1)=0 ... OK.
+    opus_multistream_decoder_get_size( 1, 0)=18504 OK.
+    opus_multistream_decoder_get_size( 1, 1)=27272 OK.
+    opus_multistream_decoder_get_size( 1, 2)=0 ... OK.
+    opus_multistream_decoder_get_size( 1, 3)=0 ... OK.
+    opus_multistream_decoder_get_size( 2,-1)=0 ... OK.
+    opus_multistream_decoder_get_size( 2, 0)=36736 OK.
+    opus_multistream_decoder_get_size( 2, 1)=45504 OK.
+    opus_multistream_decoder_get_size( 2, 2)=54272 OK.
+    opus_multistream_decoder_get_size( 2, 3)=0 ... OK.
+    opus_multistream_decoder_get_size( 3,-1)=0 ... OK.
+    opus_multistream_decoder_get_size( 3, 0)=54968 OK.
+    opus_multistream_decoder_get_size( 3, 1)=63736 OK.
+    opus_multistream_decoder_get_size( 3, 2)=72504 OK.
+    opus_multistream_decoder_get_size( 3, 3)=81272 OK.
+    opus_multistream_decoder_create() ............ OK.
+    opus_multistream_decoder_init() .............. OK.
+    OPUS_GET_FINAL_RANGE ......................... OK.
+    OPUS_MULTISTREAM_GET_DECODER_STATE ........... OK.
+    OPUS_SET_GAIN ................................ OK.
+    OPUS_GET_GAIN ................................ OK.
+    OPUS_GET_BANDWIDTH ........................... OK.
+    OPUS_UNIMPLEMENTED ........................... OK.
+    OPUS_RESET_STATE ............................. OK.
+    opus_multistream_decode() .................... OK.
+    opus_multistream_decode_float() .............. OK.
+       All multistream decoder interface tests passed
+                             (576105 API invocations)
+
+  Packet header parsing tests
+  ---------------------------------------------------
+    code 0 (65 cases) ............................ OK.
+    code 1 (163456 cases) ........................ OK.
+    code 2 (326528 cases) ........................ OK.
+    code 3 m-truncation (64 cases) ............... OK.
+    code 3 m=0,49-64 (4096 cases) ................ OK.
+    code 3 m=1 CBR (81728 cases) ................. OK.
+    code 3 m=1-48 CBR (103544448 cases) .......... OK.
+    code 3 m=1-48 VBR (120832 cases) ............. OK.
+    code 3 padding (1519448 cases) ..........
+All API tests passed.
+The libopus API was invoked 115421978 times.
+..... OK.
+    opus_packet_parse ............................ OK.
+                      All packet parsing tests passed
+                          (105760666 API invocations)
+
+  Encoder basic API tests
+  ---------------------------------------------------
+    opus_encoder_get_size(0)=0 ................... OK.
+    opus_encoder_get_size(1)=43444 ............... OK.
+    opus_encoder_get_size(2)=48356 ............... OK.
+    opus_encoder_get_size(3)=0 ................... OK.
+    opus_encoder_create() ........................ OK.
+    opus_encoder_init() .......................... OK.
+    OPUS_GET_LOOKAHEAD ........................... OK.
+    OPUS_GET_SAMPLE_RATE ......................... OK.
+    OPUS_UNIMPLEMENTED ........................... OK.
+    OPUS_SET_APPLICATION ......................... OK.
+    OPUS_GET_APPLICATION ......................... OK.
+    OPUS_SET_BITRATE ............................. OK.
+    OPUS_GET_BITRATE ............................. OK.
+    OPUS_SET_FORCE_CHANNELS ...................... OK.
+    OPUS_GET_FORCE_CHANNELS ...................... OK.
+    OPUS_SET_BANDWIDTH ........................... OK.
+    OPUS_GET_BANDWIDTH ........................... OK.
+    OPUS_SET_MAX_BANDWIDTH ....................... OK.
+    OPUS_GET_MAX_BANDWIDTH ....................... OK.
+    OPUS_SET_DTX ................................. OK.
+    OPUS_GET_DTX ................................. OK.
+    OPUS_SET_COMPLEXITY .......................... OK.
+    OPUS_GET_COMPLEXITY .......................... OK.
+    OPUS_SET_INBAND_FEC .......................... OK.
+    OPUS_GET_INBAND_FEC .......................... OK.
+    OPUS_SET_PACKET_LOSS_PERC .................... OK.
+    OPUS_GET_PACKET_LOSS_PERC .................... OK.
+    OPUS_SET_VBR ................................. OK.
+    OPUS_GET_VBR ................................. OK.
+    OPUS_SET_VBR_CONSTRAINT ...................... OK.
+    OPUS_GET_VBR_CONSTRAINT ...................... OK.
+    OPUS_SET_SIGNAL .............................. OK.
+    OPUS_GET_SIGNAL .............................. OK.
+    OPUS_SET_LSB_DEPTH ........................... OK.
+    OPUS_GET_LSB_DEPTH ........................... OK.
+    OPUS_SET_PREDICTION_DISABLED ................. OK.
+    OPUS_GET_PREDICTION_DISABLED ................. OK.
+    OPUS_SET_EXPERT_FRAME_DURATION ............... OK.
+    OPUS_GET_EXPERT_FRAME_DURATION ............... OK.
+    OPUS_GET_FINAL_RANGE ......................... OK.
+    OPUS_RESET_STATE ............................. OK.
+    opus_encode() ................................ OK.
+    opus_encode_float() .......................... OK.
+                   All encoder interface tests passed
+                             (1152209 API invocations)
+
+  Repacketizer tests
+  ---------------------------------------------------
+    opus_repacketizer_get_size()=496 ............. OK.
+    opus_repacketizer_init ....................... OK.
+    opus_repacketizer_create ..................... OK.
+    opus_repacketizer_get_nb_frames .............. OK.
+    opus_repacketizer_cat ........................ OK.
+    opus_repacketizer_out ........................ OK.
+    opus_repacketizer_out_range .................. OK.
+    opus_packet_pad .............................. OK.
+    opus_packet_unpad ............................ OK.
+    opus_multistream_packet_pad .................. OK.
+    opus_multistream_packet_unpad ................ OK.
+                        All repacketizer tests passed
+                            (6713561 API invocations)
+
+  malloc() failure tests
+  ---------------------------------------------------
+    opus_decoder_create() ................... SKIPPED.
+    opus_encoder_create() ................... SKIPPED.
+    opus_repacketizer_create() .............. SKIPPED.
+    opus_multistream_decoder_create() ....... SKIPPED.
+    opus_multistream_encoder_create() ....... SKIPPED.
+(Test only supported with GLIBC and without valgrind)
+PASS tests/test_opus_api (exit status: 0)
