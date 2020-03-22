@@ -1,0 +1,19 @@
+Supported ROM Types
+
+ROM files contain the game itself. Each system has a unique file extension to denote which
+system a given ROM runs on:
+
+.md: Sega Genesis (also known as Mega Drive)
+.sfc: Super Nintendo Entertainment System (also known as Super Famicom)
+.nes: Nintendo Entertainment System (also known as Famicom)
+.a26: Atari 2600
+.gb: Nintendo Game Boy
+.gba: Nintendo Game Boy Advance
+.gbc: Nintendo Game Boy Color
+.gg: Sega Game Gear
+.pce: NEC TurboGrafx-16 (also known as PC Engine)
+.sms: Sega Master System
+
+Sometimes ROMs from these systems use different extensions, e.g. .gen for Genesis,
+.bin for Atari, etc. Please rename the ROMs to use the aforementioned extensions in
+these cases.

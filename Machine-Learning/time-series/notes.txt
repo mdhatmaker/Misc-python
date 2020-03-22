@@ -1,0 +1,24 @@
+Time Series Analysis
+
+
+Time Series Datasets
+1. New data is recorded as a new entry
+2. Data arrives in time order
+3. Time is a primary axis
+4. (generally append-only)
+
+This allows us to:
+1. Analyze the past
+2. Monitor the present
+3. Predict the future
+
+
+STEP ONE: SPLIT OUR DATA INTO TRAINING AND TESTING DATA
+
+
+
+
+
+
+
+

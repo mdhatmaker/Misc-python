@@ -1,0 +1,83 @@
+
+
+
+Universe:
+- AAPL, XOM, 2010 to 2018
+- Model for each stock
+- Long & Short
+- Daily Data
+
+Learner inputs:
+- RSI, ADX, CCI
+- Position
+- Unrealized P&L
+
+Actions:
+- Long
+- Short
+- Nothing
+
+Reward:
+- Daily Return
+
+OOS Results:
+- AAPL: Sharpe 1.20 (vs 0.99)
+- XOM: Sharpe 1.0 (vs 0.31)
+
+
+
+
+COMBINING INDICATORS
+(https://www.tradeciety.com/how-to-choose-the-best-indicators-for-your-trading/)
+
+Three Classes of Indicators:
+1. momentum indicators
+2. trend-following indicators
+3. volatility indicators
+
+MOMENTUM            TREND               VOLATILITY
+- Stochastic        - ADX               - Bollinger Bands
+- RSI               - Moving averages   - Standard deviation
+- CCI                           - ATR -
+- Williams %        - MACD              - Keltner Channel
+- MACD              - Parabolic SAR     - Envelopes
+                    - Bollinger Bands
+        - Ichimoku Cloud -
+
+
+Sample Chart: RSI (momentum), ADX (trend), Bollinger Bands (volatility)
+
+
+
+# Technical Analysis library to financial datasets with Python Pandas
+# https://towardsdatascience.com/technical-analysis-library-to-financial-datasets-with-pandas-python-4b2b390d3543
+
+
+
+1) Gamification
+- Computer games in their simplest form have:
+    - state
+    - cursor movement
+    - reward
+- For a trading game this would be equivalent to:
+    - Historical and current prices, technical data and alternative sources
+    - Buy/Sell/Do Nothing
+    - PnL
+
+2) How To Train The System?
+- Each entry and exit is an individual game
+- Run through the price series sequentially or randomly
+- Make the whole price series one single game
+- Train on each instrument separately or on all with the same learner
+
+3) Reward Function Design
+- Pure PnL on exit, otherwise zero
+- PnL from start of trade to every time step t
+- PnL per tick
+- Punishment for long hold times
+- Alternatives to PnL:
+    - Recognition of trading direction
+    - Recognition of correct regime
+
+
+
