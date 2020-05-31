@@ -10,8 +10,8 @@ We will use BeautifulSoup to parse this website's HTML an a spcific table within
 """
 
 from f_chart import *
-print get_color('black')
-print get_color('crimson')
+print(get_color('black'))
+print(get_color('crimson'))
 sys.exit()
 
 # INPUTS:
@@ -21,21 +21,21 @@ url = "http://www.cloford.com/resources/colours/500col.htm"
 output_filename = "web_colors.csv"
 
 
-print "Requesting " + url + "..."
+print("Requesting " + url + "...")
 r = requests.get(url)
 data = r.text
-print "Creating BeautifulSoup parser..."
+print("Creating BeautifulSoup parser...")
 soup = BeautifulSoup(data, "html.parser")
 
 # BeautifulSoup example of finding all links on a site
 #for link in soup.find_all('a'):
 #    print(link.get('href'))
 
-print "Finding tables in web page..."
+print("Finding tables in web page...")
 tables = soup.findChildren('table')
-print "Found {0} tables.".format(len(tables))
+print("Found {0} tables.".format(len(tables)))
 
-print "Iterating through tables to locate specific table..."
+print("Iterating through tables to locate specific table...")
 color_table = None
 for i in range(0, len(tables)):
     t = tables[i]
@@ -44,18 +44,18 @@ for i in range(0, len(tables)):
         break
 
 if color_table == None:
-    print "Table not found."
+    print("Table not found.")
     sys.exit()
     
-print "Found table."
+print("Found table.")
 
-print "Finding rows in table..."
+print("Finding rows in table...")
 rows = color_table.findChildren(['th', 'tr'])
-print "Found {0} rows.".format(len(rows))
+print("Found {0} rows.".format(len(rows)))
 
 data_rows = []
 
-print "Iterating through rows..."
+print("Iterating through rows...")
 for row in rows:
     cells = row.findChildren('td')
     #for cell in cells:
@@ -66,9 +66,9 @@ for row in rows:
         if '*' in color_name:
             if color_name.endswith('*'):
                 color_name = color_name.strip('*')
-                print color_name
+                print(color_name)
             else:
-                print color_name
+                print(color_name)
                 splits = color_name.split('(')
                 splits2 = splits[1].split(')')
                 #print splits[0], splits2[0]
@@ -83,6 +83,6 @@ for row in rows:
 df = pd.DataFrame(data_rows, columns=['Color_Name','Hex','R','G','B'])
 df.to_csv(output_filename, index=False)
 
-print
-print "Output to dataframe file:", "'{0}'".format(output_filename)
-print
+print()
+print("Output to dataframe file:", "'{0}'".format(output_filename))
+print()
