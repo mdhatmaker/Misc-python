@@ -1,0 +1,604 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "properties": {
+        "ApplicationToFolder": {
+            "description": "Number of business days that the loan took to move from application status to folder received status.",
+            "maximum": 84.0,
+            "minimum": 0.0,
+            "type": "number"
+        },
+        "AppraisalTurnTime": {
+            "description": "Number of days it takes to complete an appraisal.?????",
+            "maximum": 57.688194,
+            "minimum": 0.000694,
+            "type": "number"
+        },
+        "AppraisalValue": {
+            "description": "Appraisal value of the property.",
+            "maximum": 5005633.0,
+            "minimum": 0.0,
+            "type": "number"
+        },
+        "AppraisedValue": {
+            "description": "The appraised value of the property in dollars.",
+            "maximum": 5925000.0,
+            "minimum": 0.0,
+            "type": "number"
+        },
+        "AttemptedContacts": {
+            "description": "The number of attempted contacts with the client.",
+            "maximum": 115,
+            "minimum": 0,
+            "type": "integer"
+        },
+        "AverageClosingTurnTime": {
+            "description": "The average closing turn time of the whole pipeline of loans over a rolling time frame of ? days?.?????",
+            "maximum": 29.708333,
+            "minimum": 0.083333,
+            "type": "number"
+        },
+        "AverageHouseholdIncome": {
+            "description": "Average monthly? household income in ? geography over the ? time frame.????",
+            "maximum": 84645,
+            "minimum": 16363,
+            "type": "integer"
+        },
+        "BankerPerformance": {
+            "description": "Performance of a banker over last six months.???",
+            "maximum": 0.997,
+            "minimum": 0.002,
+            "type": "number"
+        },
+        "BankerTenure": {
+            "description": "????",
+            "maximum": 10.0,
+            "minimum": 0.0,
+            "type": "number"
+        },
+        "BorrowerAge": {
+            "description": "The age of the client in years.",
+            "maximum": 99.008219,
+            "minimum": 18.383561,
+            "type": "number"
+        },
+        "BorrowerPoints": {
+            "description": "Borrower points of the loan.",
+            "maximum": 50400.0,
+            "minimum": 0.0,
+            "type": "number"
+        },
+        "CashoutLoanIndicator": {
+            "description": "Indicates that the loan is a cashout loan.",
+            "type": "boolean"
+        },
+        "CorrelationID": {
+            "description": "The correlation id of this prediction request.",
+            "type": "string"
+        },
+        "CountyPopulation": {
+            "description": "The population of the county where the property is over the ? time frame. ???",
+            "maximum": 9519338,
+            "minimum": 831,
+            "type": "integer"
+        },
+        "CreditScoreValue": {
+            "description": "FICO credit score of the client.",
+            "maximum": 835,
+            "minimum": 620,
+            "type": "integer"
+        },
+        "DTI": {
+            "description": "Ratio of debt in dollars to income in dollars of the client.",
+            "maximum": 100.0,
+            "minimum": 0.0,
+            "type": "number"
+        },
+        "DaysLockToAnticipatedClosingDate": {
+            "description": "Number of days between lock date and anticipated closing date. Counts inclusive lock date and anticipated closing date.",
+            "maximum": 154.0,
+            "minimum": -10.0,
+            "type": "number"
+        },
+        "DaysRemainingOnLock": {
+            "description": "Number of days remaining in the rate lock of the loan calculated from the current date.",
+            "maximum": 91,
+            "minimum": -1,
+            "type": "integer"
+        },
+        "DaysToAnticipatedClosingDate": {
+            "description": "Number of days until anticipated closing date. Calculated from current date.",
+            "maximum": 419,
+            "minimum": -37,
+            "type": "integer"
+        },
+        "DiscountFee": {
+            "description": "???",
+            "maximum": 43750.0,
+            "minimum": 0.0,
+            "type": "number"
+        },
+        "EstimatedMarketValue": {
+            "description": "Estimated market value of the property.???",
+            "maximum": 8750000.0,
+            "minimum": 0.0,
+            "type": "number"
+        },
+        "HedgeGroup": {
+            "description": "Hedge group of the loan.",
+            "enum": [
+                "CONV_15YR",
+                "GOVT_15YR",
+                "CONV_30YR",
+                "GOVT_30YR",
+                "GARM_30YR",
+                "NA_Fixed_30",
+                "ARM_30YR",
+                "NA_Fixed_15",
+                "NA_ARM_30"
+            ],
+            "type": "string"
+        },
+        "IncomeMonthlyTotal": {
+            "description": "Monthly income of the client in dollars.",
+            "maximum": 182679.16,
+            "minimum": -13707.64,
+            "type": "number"
+        },
+        "LOSMortgageType": {
+            "description": "The loan type.",
+            "enum": [
+                "VA Fixed",
+                "Agency ARM",
+                "FHA Fixed",
+                "Agency Fixed",
+                "VA ARM",
+                "FHA ARM",
+                "USDA",
+                "Non-Conforming Fixed"
+            ],
+            "type": "string"
+        },
+        "LOSStatusCurrent": {
+            "description": "The status of the loan.",
+            "enum": [
+                "70",
+                "45",
+                "5",
+                "42",
+                "10",
+                "1",
+                "21",
+                "34",
+                "62",
+                "60",
+                "40",
+                "63",
+                "4",
+                "36",
+                "41",
+                "24",
+                "33",
+                "30",
+                "57",
+                "35",
+                "19",
+                "55",
+                "20",
+                "65"
+            ],
+            "type": "string"
+        },
+        "LTVOrigination": {
+            "description": "Ratio of the loan value in dollars to the value of the property in dollars.",
+            "maximum": 200.0,
+            "minimum": 1.6,
+            "type": "number"
+        },
+        "LoanAmount": {
+            "description": "Loan amount in dollars.",
+            "maximum": 2562000.0,
+            "minimum": 15040.0,
+            "type": "number"
+        },
+        "LoanChannel": {
+            "description": "The loan channel group to which the loan belongs.",
+            "enum": [
+                "QLMS",
+                "Forward AgentRelations",
+                "Forward Benefit Partner Relocation",
+                "First Tennessee",
+                "Forward Relocation AgentRelations",
+                "Forward",
+                "Correspondent",
+                "Same Servicer HARP - FNMA",
+                "Forward Relocation Schwab",
+                "Benefit Partner",
+                "Relocation",
+                "Forward Schwab Benefit Partner",
+                "Acquisition",
+                "Schwab",
+                "Forward QLMS Relocation"
+            ],
+            "type": "string"
+        },
+        "LoanPurpose": {
+            "description": "The purpose of the loan, used for routing the loan to the right model.",
+            "enum": [
+                "CashOutRefi",
+                "Purchase",
+                "Mtge First",
+                "Construction-Permanent",
+                "Refinance"
+            ],
+            "type": "string"
+        },
+        "LockExtensionsCount": {
+            "description": "Number of times that a lock has beeen extended for this loan.",
+            "maximum": 6,
+            "minimum": 0,
+            "type": "integer"
+        },
+        "LockMonthName": {
+            "description": "The name of the month in which the loan was locked.???",
+            "enum": [
+                "July",
+                "November",
+                "February",
+                "January",
+                "March",
+                "October",
+                "May",
+                "August",
+                "April",
+                "June",
+                "December",
+                "September"
+            ],
+            "type": "string"
+        },
+        "LockToAppraisalOrdered": {
+            "description": "Number of days that it took the loan to move from locked to appraisal status.",
+            "maximum": 98.583333,
+            "minimum": -293.666666,
+            "type": "number"
+        },
+        "LockToFolderReceived": {
+            "description": "Number of days that it took the loan to move from locked to folder received status.",
+            "maximum": 98.0,
+            "minimum": -413.0,
+            "type": "number"
+        },
+        "LockType": {
+            "description": "???",
+            "maximum": 60,
+            "minimum": 15,
+            "type": "integer"
+        },
+        "Lockage": {
+            "description": "Number of days between lock date and today's date.",
+            "maximum": 148,
+            "minimum": -575,
+            "type": "integer"
+        },
+        "NumberOfAuditors": {
+            "description": "???",
+            "maximum": 30,
+            "minimum": 17,
+            "type": "integer"
+        },
+        "NumberOfLockExpires": {
+            "description": "Number of lock expiries the loan has gone through.",
+            "maximum": 2,
+            "minimum": 0,
+            "type": "integer"
+        },
+        "Occupancy": {
+            "description": "The occupancy type of the property.",
+            "enum": [
+                "Investment Property",
+                "Second Home",
+                "Unknown",
+                "-",
+                "Primary Residence"
+            ],
+            "type": "string"
+        },
+        "ProcessingFee": {
+            "description": "???",
+            "maximum": 1150.0,
+            "minimum": 0.0,
+            "type": "number"
+        },
+        "ProductGroup": {
+            "description": "The product group of the loan.",
+            "enum": [
+                "Govt",
+                "Govt ARM",
+                "HedgeableJumbo",
+                "Conv Fixed",
+                "Conv ARM",
+                "Harp2"
+            ],
+            "type": "string"
+        },
+        "ProductLOS": {
+            "description": "Product code of the loan.",
+            "enum": [
+                "830J",
+                "A30HB",
+                "QJM15",
+                "Y12",
+                "285L",
+                "RD30",
+                "F30",
+                "130C",
+                "R30",
+                "123",
+                "101L",
+                "930",
+                "Y8",
+                "915",
+                "830S",
+                "930SL",
+                "830V",
+                "101HB",
+                "130SS",
+                "830CS",
+                "230HB",
+                "587LP",
+                "925",
+                "QJ30",
+                "230",
+                "Y8P",
+                "Y13",
+                "951",
+                "F15",
+                "130P",
+                "V30J",
+                "Y18",
+                "330HB",
+                "QJ71",
+                "Y23",
+                "130HB",
+                "A15",
+                "330",
+                "330P",
+                "587L",
+                "Y17P",
+                "815CS",
+                "Y27",
+                "Y11",
+                "Y29",
+                "815J",
+                "285HB",
+                "820V",
+                "815V",
+                "230P",
+                "Y26",
+                "930J",
+                "Y13P",
+                "A52",
+                "V30",
+                "825V",
+                "QJM30",
+                "Y28",
+                "920",
+                "QJ15",
+                "851V",
+                "225",
+                "A30C",
+                "Y16",
+                "A30",
+                "Y17",
+                "FRED",
+                "130"
+            ],
+            "type": "string"
+        },
+        "PropertyType": {
+            "description": "The property type of the property.",
+            "enum": [
+                "Condo",
+                "Other",
+                "PUD",
+                "SingleFamily",
+                "Condominium",
+                "Townhouse",
+                "Single Family",
+                "Site Condominium",
+                "2-4 Family",
+                "CO-OP"
+            ],
+            "type": "string"
+        },
+        "Purpose": {
+            "description": "???",
+            "enum": [
+                "Purchase",
+                "Refinance",
+                "Construction-Permanent",
+                "CashOutRefi",
+                "CashoutRefi",
+                "Mtge First"
+            ],
+            "type": "string"
+        },
+        "QLMSLoanIndicator": {
+            "description": "Indicates that the loan is a QLMS loan.",
+            "type": "boolean"
+        },
+        "RequiredPoints": {
+            "description": "Required points of the loan.",
+            "maximum": 44950.0,
+            "minimum": -32123.4,
+            "type": "number"
+        },
+        "RocketLoanIndicator": {
+            "description": "Indicates that the loan is a Rocket loan.",
+            "type": "boolean"
+        },
+        "SchwabLoanIndicator": {
+            "description": "Indicates that the loan is a schwab loan",
+            "type": "boolean"
+        },
+        "SelfEmployedIndicator": {
+            "description": "Whether or not the client is self-employed.",
+            "type": "boolean"
+        },
+        "SingleBorrowerIndicator": {
+            "description": "Whether or not the client is the only borrower on the loan.",
+            "type": "boolean"
+        },
+        "StateCode": {
+            "description": "The state code of the state where the property is.",
+            "enum": [
+                "VT",
+                "NE",
+                "DC",
+                "TN",
+                "HI",
+                "KY",
+                "OK",
+                "AR",
+                "LA",
+                "RI",
+                "MA",
+                "ME",
+                "CA",
+                "FL",
+                "CO",
+                "NC",
+                "IN",
+                "IL",
+                "IA",
+                "GA",
+                "ID",
+                "NH",
+                "MN",
+                "WY",
+                "PA",
+                "KS",
+                "MO",
+                "ND",
+                "UT",
+                "MI",
+                "AZ",
+                "CT",
+                "AK",
+                "MD",
+                "TX",
+                "NY",
+                "WA",
+                "MT",
+                "WI",
+                "NM",
+                "OR",
+                "SC",
+                "OH",
+                "DE",
+                "MS",
+                "AL",
+                "WV",
+                "NV",
+                "SD",
+                "VA",
+                "NJ"
+            ],
+            "type": "string"
+        },
+        "StatusAgeBusinessDays": {
+            "description": "The number of business days that the loan has been in the current status.",
+            "maximum": 225,
+            "minimum": 0,
+            "type": "integer"
+        },
+        "StatusBucket": {
+            "description": "Custom bucket to group multiple statuses.???",
+            "enum": [
+                "Signoff+",
+                "PreFolder",
+                "Suspense",
+                "Pre=Folder",
+                "Folder",
+                "Con-APP"
+            ],
+            "type": "string"
+        },
+        "SuspenseReason": {
+            "description": "???",
+            "enum": [
+                "SuspenseIncome",
+                "Other",
+                "SuspenseCollateral",
+                "NoSuspense",
+                "SuspenseTitle",
+                "SuspenseANA"
+            ],
+            "type": "string"
+        },
+        "SuspenseSubReason": {
+            "description": "???",
+            "enum": [
+                "NotResponding",
+                "Other",
+                "NoSuspense",
+                "Qulification",
+                "SuspenseTitle"
+            ],
+            "type": "string"
+        },
+        "TargetProfitPercent": {
+            "description": "???",
+            "maximum": 8.3,
+            "minimum": -3.625,
+            "type": "number"
+        },
+        "TeamMembers": {
+            "description": "Number of Underwriters and Bankers working today.???",
+            "maximum": 6762,
+            "minimum": 1004,
+            "type": "integer"
+        },
+        "TitleIssuedIndicator": {
+            "description": "Whether or not title has been issued for the property.",
+            "type": "boolean"
+        },
+        "TotalInsuranceAmount": {
+            "description": "Total amount of insurance purchased on the property in dollars.",
+            "maximum": 18886.69,
+            "minimum": 0.0,
+            "type": "number"
+        },
+        "TotalTaxAmount": {
+            "description": "Total tax amount.",
+            "maximum": 70752.0,
+            "minimum": 0.0,
+            "type": "number"
+        },
+        "Treasury2YearBondYield": {
+            "description": "",
+            "type": "number"
+        },
+        "Treasury30YearBondYield": {
+            "description": "The current 30 year treasury bond yield.",
+            "type": "number"
+        },
+        "UPBClosing": {
+            "description": "Closing costs of the loan in dollars.",
+            "maximum": 114976.33,
+            "minimum": -6631.95,
+            "type": "number"
+        }
+    },
+    "required": [
+        "LTVOrigination",
+        "UPBClosing",
+        "CorrelationID",
+        "IncomeMonthlyTotal",
+        "LockExtensionsCount",
+        "RequiredPoints",
+        "LoanPurpose"
+    ],
+    "title": "Delorean Input Schema",
+    "type": "object"
+}

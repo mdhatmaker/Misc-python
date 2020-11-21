@@ -34,3 +34,6 @@ data/Poloniex_BTCUSD_1h.csv
 data/Poloniex_BCHUSD_1h.csv
 data/Itbit_BTCUSD_1h.csv
 .vscode/settings.json
+
+.fake
+.ionide
