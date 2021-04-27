@@ -5,7 +5,7 @@ from textblob import TextBlob
 
 def process_friend(friend):
     return
-    print friend.screen_name
+    print(friend.screen_name)
     return
 
 def process_status(status):
@@ -28,8 +28,8 @@ class MyStreamListener(tweepy.StreamListener):
         blob = TextBlob(ascii_text)
         #print "sentiment [-1.0,1.0]: {0}    polarity [0.0,1.0]: {1}".format(blob.sentiment, blob.sentiment.polarity)
         sentiment = blob.sentiment
-        print "polarity: {0:.2f}   subjectivity: {1:.2f}".format(sentiment.polarity, sentiment.subjectivity)
-        print
+        print("polarity: {0:.2f}   subjectivity: {1:.2f}".format(sentiment.polarity, sentiment.subjectivity))
+        print()
         return
     
     def on_error(self, status_code):
@@ -62,28 +62,28 @@ for tweet in public_tweets:
     i += 1
     text = tweet.text.encode('utf-8')
     ascii_text = tweet.text.encode('ascii', 'ignore')
-    print "{0}: {1}".format(i, text)
+    print("{0}: {1}".format(i, text))
     blob = TextBlob(ascii_text)
     #print "sentiment [-1.0,1.0]: {0}    polarity [0.0,1.0]: {1}".format(blob.sentiment, blob.sentiment.polarity)
     sentiment = blob.sentiment
-    print "polarity: {0:.2f}   subjectivity: {1:.2f}".format(sentiment.polarity, sentiment.subjectivity)
-    print
-print
+    print("polarity: {0:.2f}   subjectivity: {1:.2f}".format(sentiment.polarity, sentiment.subjectivity))
+    print()
+print()
 
 # Get the User object for a specified username
 user = api.get_user('MaximusHead')
-print "screen name: {0}".format(user.screen_name)
-print "# followers: {0}".format(user.followers_count)
+print("screen name: {0}".format(user.screen_name))
+print("# followers: {0}".format(user.followers_count))
 #for friend in user.friends():
 #   print friend.screen_name
-print
+print()
 
-print "Creating stream listener..."
+print("Creating stream listener...")
 myStreamListener = MyStreamListener()
 myStream = tweepy.Stream(auth = api.auth, listener=myStreamListener)
 
 # Most cases will use filter, the user_stream, or the sitestream
-myStream.filter(track=['aapl', 'goog'], async=False)
+myStream.filter(track=['aapl', 'goog']) #, async=False)
 
 
 
