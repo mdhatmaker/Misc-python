@@ -7,21 +7,6 @@ import time
 import os
 
 
-def getSoup(URL):
-  page = requests.get(URL)
-  soup = BeautifulSoup(page.content, 'html.parser')
-  return soup
-
-def getData(soup, debug_print = False):
-  results = soup.find(id='__NEXT_DATA__')
-  text = results.prettify()
-  split = text.split('\n')
-  jsonStr = split[1].strip()
-  if debug_print: print(jsonStr, '\n')
-  pyObj = json.loads(jsonStr)
-  if debug_print: print(type(pyObj))   # 'dict'
-  return pyObj
-
 def printIt(dictList, header):
   print('\n', header)
   for li in dictList:
@@ -54,6 +39,21 @@ def toCsvLines(dictList):
     volume24h = prices['volume24h']
     rv.append(f'{now},{symbol},{name},{price:.8f},{priceChange1h:.2f},{priceChange24h:.2f},{priceChange7d:.2f},{priceChange30d:.2f},{volume24h:.2f}')
   return rv
+
+def getSoup(URL):
+  page = requests.get(URL)
+  soup = BeautifulSoup(page.content, 'html.parser')
+  return soup
+
+def getData(soup, debug_print = False):
+  results = soup.find(id='__NEXT_DATA__')
+  text = results.prettify()
+  split = text.split('\n')
+  jsonStr = split[1].strip()
+  if debug_print: print(jsonStr, '\n')
+  pyObj = json.loads(jsonStr)
+  if debug_print: print(type(pyObj))   # 'dict'
+  return pyObj
 
 def getGainersLosers():
   URL = 'https://coinmarketcap.com/gainers-losers/'
