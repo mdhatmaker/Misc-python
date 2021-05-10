@@ -37,3 +37,4 @@ data/Itbit_BTCUSD_1h.csv
 
 .fake
 .ionide
+.DS_Store
