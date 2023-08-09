@@ -1,0 +1,28 @@
+﻿<Properties StartupConfiguration="{CE777858-2F34-4515-9F21-949C8AAFD643}|Default">
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.Workbench ActiveDocument="YouTubePlaylists/Program.cs">
+    <Files>
+      <File FileName="YouTubePlaylists/Program.cs" Line="61" Column="13" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="YouTubePlaylists" expanded="True">
+            <Node name="YouTubePlaylists" expanded="True">
+              <Node name="Dependencies" expanded="True">
+                <Node name="FrameworkReferences" expanded="True" />
+                <Node name="PackageDependencies" expanded="True" />
+              </Node>
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.ItemProperties.YouTubePlaylists PreferredExecutionTarget="MonoDevelop.Default" />
+</Properties>
