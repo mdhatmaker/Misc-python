@@ -150,7 +150,8 @@ def printUrls(vid_urls):
         
 if __name__ == '__main__':
     debug_url = None
-    debug_url = "https://www.youtube.com/playlist?list=PLwhIHbeRs_DO0SCsjBtYiQWMdMyxWaEib"
+    #debug_url = "https://www.youtube.com/playlist?list=PLwhIHbeRs_DO0SCsjBtYiQWMdMyxWaEib"
+    debug_url = "https://www.youtube.com/playlist?list=PLL1BeP4JCeu3phG9WCNolRClP73Jna7UT"
     if not debug_url and (len(sys.argv) < 2 or len(sys.argv) > 3):
         print('USAGE: python yt_playlist_dl.py playlistURL OR python yt_playlist_dl.py playlistURL destPath')
         exit(1)

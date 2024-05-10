@@ -3,6 +3,24 @@ from pytube import YouTube
 import urllib.request
 import time
 import os
+import sys
+from pytube import Playlist
+
+
+def download_playlist(playlist_url):
+    playlist = Playlist(playlist_url)
+
+    # Loop through all videos in the playlist and download them
+    for url in playlist.video_urls:
+        youtube = pytube.YouTube(url)
+        video = youtube.streams.get_highest_resolution()
+        video.download('/path/to/download/directory')
+
+# Replace with your playlist URL
+YOUR_PLAYLIST_ID = 'PLL1BeP4JCeu3phG9WCNolRClP73Jna7UT'
+download_playlist(f'https://www.youtube.com/playlist?list={YOUR_PLAYLIST_ID}')
+
+sys.exit()
 
 
 # https://stackoverflow.com/questions/59135180/keyerror-url-encoded-fmt-stream-map
@@ -20,8 +38,9 @@ path = os.path.join(savePath, directory)
 
 
 ## link parser
-past_link_here = "https://www.youtube.com/playlist?list=PLxhvVyxYRviZd1oEA9nmnilY3PhVrt4nj"
-html_page = urllib.request.urlopen(past_link_here)
+paste_link_here = "https://www.youtube.com/playlist?list=PLxhvVyxYRviZd1oEA9nmnilY3PhVrt4nj"
+paste_link_here = "https://www.youtube.com/playlist?list=PLL1BeP4JCeu3phG9WCNolRClP73Jna7UT"
+html_page = urllib.request.urlopen(paste_link_here)
 x = html_page.read()
 soup = BeautifulSoup(x, 'html.parser')
 for link in soup.findAll('a'):
@@ -55,7 +74,7 @@ for x in s:
             print(k + ' is downloading....')
             l.download(path)
             time.sleep(1)
-            print('downloading compleat')
+            print('downloading complete')
 
 ##    except Exception:
 ##        print('error')

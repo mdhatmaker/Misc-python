@@ -10,6 +10,7 @@ from os.path import join
 import os
 import requests
 import re
+import pyperclip
 
 
 output_dir = "/Users/michael/Downloads/scrape"
@@ -191,21 +192,28 @@ def download_big_image(url):
   return
 
 def get_smutty_image_from_url(url):
-  response = requests.get(url)  #, headers=headers)
-  if response.status_code != 200:
-      print(f"Failed to fetch the page (status_code {response.status_code})")
-      return
-  soup = BeautifulSoup(response.text, 'html.parser')
-  return get_smutty_image_from_soup(soup)
-
+  try:
+    response = requests.get(url)  #, headers=headers)
+    if response.status_code != 200:
+        print(f"Failed to fetch the page (status_code {response.status_code})")
+        return
+    soup = BeautifulSoup(response.text, 'html.parser')
+    return get_smutty_image_from_soup(soup)
+  except:
+    print(f'Error getting image from url: {url}')
+    return ''
+  
 def get_smutty_image_from_soup(soup):
   image = soup.find("img", {"class": "yesPopunder image_perma_img inner_rounded"})
   if image is None:
      image = soup.find("img", {"class": "yesPopunder image_perma_img"})
   if image is None:
      image = soup.find("img", {"class": "yesPopunder"})
-  src = f"https:{image['src']}"
-  return src
+  if image == None:
+     return ''
+  else:
+    src = f"https:{image['src']}"
+    return src
 
 def process_smutty_image_page(url):
   imgurls = []
@@ -217,24 +225,27 @@ def process_smutty_image_page(url):
       return
   soup = BeautifulSoup(response.text, 'html.parser')
   imgurl = get_smutty_image_from_soup(soup)
-  #imgurls.append(imgurl)
-  download_image(imgurl)
-  #related = soup.find("div", {"id": "smutty_related"})
-  #swidgets = related.find_all("div", {"class": "swidget_float"})
-  swidgets = soup.find_all("div", {"class": "swidget_float"})
-  for el in swidgets:
-    a = el.find("a", {"class": "landscape"})
-    href = f"https://smutty.com{a['href']}"
-    print(href)
-    imgurl = get_smutty_image_from_url(href)
-    print(imgurl)
+  if imgurl == None or imgurl == '':
+    print(f'Error getting image from soup: {url}')
+  else:
     #imgurls.append(imgurl)
     download_image(imgurl)
+    #related = soup.find("div", {"id": "smutty_related"})
+    #swidgets = related.find_all("div", {"class": "swidget_float"})
+    swidgets = soup.find_all("div", {"class": "swidget_float"})
+    for el in swidgets:
+      a = el.find("a", {"class": "landscape"})
+      href = f"https://smutty.com{a['href']}"
+      print(href)
+      imgurl = get_smutty_image_from_url(href)
+      print(imgurl)
+      #imgurls.append(imgurl)
+      download_image(imgurl)
   return
 
 def get_image_urls_from_smutty_page(url):
   imgurls = []
-  print(f"getting URLs --> {url}")
+  print(f"getting image URLs --> {url}")
   response = requests.get(url)
   if response.status_code != 200:
       print(f"Failed to fetch the page (status_code {response.status_code})")
@@ -244,11 +255,14 @@ def get_image_urls_from_smutty_page(url):
   imgurls.append(imgurl)
   swidgets = soup.find_all("div", {"class": "swidget_float"})
   for el in swidgets:
-    a = el.find("a", {"class": "landscape"})
-    href = f"https://smutty.com{a['href']}"
-    imgurl = get_smutty_image_from_url(href)
-    print(f"{href}     {imgurl}")
-    imgurls.append(imgurl)
+    try:
+      a = el.find("a", {"class": "landscape"})
+      href = f"https://smutty.com{a['href']}"
+      imgurl = get_smutty_image_from_url(href)
+      print(f"{href}     {imgurl}")
+      imgurls.append(imgurl)
+    except:
+      print(f'Error getting image from url: {href}')
   return imgurls
 
 def get_urls_from_smutty_page(url):
@@ -281,40 +295,80 @@ def remove_list_duplicates(list):
 #              "https://smutty.com/s/d0eQ4/"]
 
 
-smutty_urls = []
-smutty_urls1 = get_urls_from_smutty_page("https://smutty.com/s/ATN2I/")
-i = 0
-for su in smutty_urls1:
-   i += 1
-   print(f"========== {i} / {len(smutty_urls1)} ==========")
-   smutty_urls2 = get_urls_from_smutty_page(su)
-   smutty_urls.extend(smutty_urls2)
-   smutty_urls = remove_list_duplicates(smutty_urls)
-
-print("\n\n")
-
-smutty_image_urls = []
-i = 0
-for url in smutty_urls:
-   i += 1
-   print(f"========== {i} / {len(smutty_urls)} ==========")
-   imgurls = get_image_urls_from_smutty_page(url)
-   smutty_image_urls.extend(imgurls)
-smutty_image_urls = remove_list_duplicates(smutty_image_urls)
-
-print(f"\n{len(smutty_image_urls)} distinct image URLs\n")
-
-prefix = ""
-i = 0
-for li in smutty_image_urls:
-  filename = prefix + li.split('/')[-1]
-  output_pathname = join(output_dir, filename)
-  if (os.path.exists(output_pathname) == False):
-    i += 1
-    print(f"{i}   {output_pathname}")
-    download_image(li)
+def process_smutty_page(smutty_urls):
+  smutty_image_urls = []
+  i = 0
+  for url in smutty_urls:
+     i += 1
+     print(f"========== {i} / {len(smutty_urls)} ==========")
+     imgurls = get_image_urls_from_smutty_page(url)
+     smutty_image_urls.extend(imgurls)
+  smutty_image_urls = remove_list_duplicates(smutty_image_urls)
+  print(f"\n{len(smutty_image_urls)} distinct image URLs\n")
+  #
+  prefix = ""
+  i = 0
+  for li in smutty_image_urls:
+    try:
+      filename = prefix + li.split('/')[-1]
+      output_pathname = join(output_dir, filename)
+      if (os.path.exists(output_pathname) == False):
+        i += 1
+        print(f"{i}   {output_pathname}")
+        download_image(li)
+    except:
+      print(f'Error processing image url: {li}')
 
 
+def deep_process_smutty_page(url):
+   # "https://smutty.com/s/1VsU0/"
+  smutty_urls = []
+  smutty_urls1 = get_urls_from_smutty_page(url)
+  i = 0
+  for su in smutty_urls1:
+     i += 1
+     print(f"========== {i} / {len(smutty_urls1)} ==========")
+     smutty_urls2 = get_urls_from_smutty_page(su)
+     smutty_urls.extend(smutty_urls2)
+     smutty_urls = remove_list_duplicates(smutty_urls)
+  print("\n\n")
+  #
+  smutty_image_urls = []
+  i = 0
+  for url in smutty_urls:
+     i += 1
+     print(f"========== {i} / {len(smutty_urls)} ==========")
+     imgurls = get_image_urls_from_smutty_page(url)
+     smutty_image_urls.extend(imgurls)
+  smutty_image_urls = remove_list_duplicates(smutty_image_urls)
+  print(f"\n{len(smutty_image_urls)} distinct image URLs\n")
+  #
+  prefix = ""
+  i = 0
+  for li in smutty_image_urls:
+    filename = prefix + li.split('/')[-1]
+    output_pathname = join(output_dir, filename)
+    if (os.path.exists(output_pathname) == False):
+      i += 1
+      print(f"{i}   {output_pathname}")
+      download_image(li)
+
+
+while (True):
+  print("Waiting for paste to clipboard...")
+  clip = pyperclip.waitForNewPaste()
+  print(clip)
+  clip_lines = clip.split('\n')   #clip.splitlines(clip)
+  print(f'\n\n\n===== {len(clip_lines)} LINES PASTED =====')
+  for li in clip_lines:
+    lil = li.lower()
+    if li.startswith('https://smutty.com/s/'):
+      process_smutty_page([li])
+    else:
+      print(f'\nUnknown site URL: {li}\n')
+  print('\n----- DONE PROCESSING -----\n')
+
+ 
 #https://smutty.com/s/75kY9/
 #https://smutty.com/s/d6Z2T/
 #https://smutty.com/s/ARExS/
